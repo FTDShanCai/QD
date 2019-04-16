@@ -1,0 +1,43 @@
+-- Merging decision tree log ---
+manifest
+ADDED from E:\QD\app_login\src\main\AndroidManifest.xml:2:1-9:12
+INJECTED from E:\QD\app_login\src\main\AndroidManifest.xml:2:1-9:12
+INJECTED from E:\QD\app_login\src\main\AndroidManifest.xml:2:1-9:12
+INJECTED from E:\QD\app_login\src\main\AndroidManifest.xml:2:1-9:12
+INJECTED from E:\QD\app_login\src\main\AndroidManifest.xml:2:1-9:12
+INJECTED from E:\QD\app_login\src\main\AndroidManifest.xml:2:1-9:12
+INJECTED from E:\QD\app_login\src\main\AndroidManifest.xml:2:1-9:12
+	package
+		ADDED from E:\QD\app_login\src\main\AndroidManifest.xml:3:5-36
+		INJECTED from E:\QD\app_login\src\main\AndroidManifest.xml
+		INJECTED from E:\QD\app_login\src\main\AndroidManifest.xml
+	android:versionName
+		INJECTED from E:\QD\app_login\src\main\AndroidManifest.xml
+		ADDED from E:\QD\app_login\src\main\AndroidManifest.xml:2:1-9:12
+		INJECTED from E:\QD\app_login\src\main\AndroidManifest.xml
+	android:versionCode
+		INJECTED from E:\QD\app_login\src\main\AndroidManifest.xml
+		ADDED from E:\QD\app_login\src\main\AndroidManifest.xml:2:1-9:12
+		INJECTED from E:\QD\app_login\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from E:\QD\app_login\src\main\AndroidManifest.xml:2:11-69
+application
+ADDED from E:\QD\app_login\src\main\AndroidManifest.xml:5:5-7:19
+activity#com.example.app_login.ui.LoginActivity
+ADDED from E:\QD\app_login\src\main\AndroidManifest.xml:6:9-63
+	android:name
+		ADDED from E:\QD\app_login\src\main\AndroidManifest.xml:6:19-51
+uses-sdk
+INJECTED from E:\QD\app_login\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from E:\QD\app_login\src\main\AndroidManifest.xml
+INJECTED from E:\QD\app_login\src\main\AndroidManifest.xml
+INJECTED from E:\QD\app_login\src\main\AndroidManifest.xml
+INJECTED from E:\QD\app_login\src\main\AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from E:\QD\app_login\src\main\AndroidManifest.xml
+		ADDED from E:\QD\app_login\src\main\AndroidManifest.xml
+		INJECTED from E:\QD\app_login\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from E:\QD\app_login\src\main\AndroidManifest.xml
+		ADDED from E:\QD\app_login\src\main\AndroidManifest.xml
+		INJECTED from E:\QD\app_login\src\main\AndroidManifest.xml

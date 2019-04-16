@@ -1,0 +1,46 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.example.qddemo"
+        minSdkVersion 16
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+
+        multiDexEnabled true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    defaultConfig {
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [ AROUTER_MODULE_NAME : project.getName() ]
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    annotationProcessor 'com.alibaba:arouter-compiler:1.2.2'
+    implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-21'
+    implementation project(':qd_base')
+
+    if (!rootProject.ext.isLoginApplication){
+        runtimeOnly project(':app_login')
+    }
+}
