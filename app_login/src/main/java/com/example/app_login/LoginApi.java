@@ -15,6 +15,7 @@ import retrofit2.http.GET;
  * <p>description:
  */
 public interface LoginApi {
+    String baseUrl = "https://wanandroid.com/";
 
     @GET("wxarticle/chapters/json")
     Observable<BaseResult<ArrayList<LoginEntity>>> login();

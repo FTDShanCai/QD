@@ -1,6 +1,5 @@
 package com.example.qddemo;
 
-import com.alibaba.android.arouter.launcher.ARouter;
 import com.example.qd_base.BaseApp;
 
 /**

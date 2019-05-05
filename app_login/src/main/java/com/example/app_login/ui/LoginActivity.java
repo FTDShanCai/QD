@@ -1,13 +1,18 @@
 package com.example.app_login.ui;
 
 
+import android.arch.lifecycle.GenericLifecycleObserver;
+import android.arch.lifecycle.Lifecycle;
+import android.arch.lifecycle.LifecycleOwner;
 import android.content.Context;
+import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.Network;
 import android.net.NetworkRequest;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -31,7 +36,6 @@ import java.util.ArrayList;
 
 @Route(path = "/login/login")
 public class LoginActivity extends BaseActivity {
-
     Button btn, btn_isNet;
     TextView tv_response;
 
@@ -56,13 +60,15 @@ public class LoginActivity extends BaseActivity {
             public void onClick(View v) {
                 AppStatus.isOnline = !AppStatus.isOnline;
                 btn_isNet.setText(AppStatus.isOnline + "");
+                startActivity(new Intent(LoginActivity.this, LifecycleActivity.class));
+
             }
         });
         btn_isNet.setText(AppStatus.isOnline + "");
     }
 
     private void login() {
-        BaseNet.get().api("https://wanandroid.com/").setCacheMode(CacheMode.NoCache)
+        BaseNet.get().api(LoginApi.baseUrl).setCacheMode(CacheMode.ReadCache)
                 .getApi(LoginApi.class)
                 .login()
                 .compose(RxSchedulers.compose())
@@ -100,4 +106,10 @@ public class LoginActivity extends BaseActivity {
         }
     }
 
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        getLifecycle().addObserver((GenericLifecycleObserver) (source, event) -> Log.d("ftd", event.name() + ""));
+    }
 }

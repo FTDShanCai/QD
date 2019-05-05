@@ -6,6 +6,8 @@ import android.util.Log;
 
 import com.trello.rxlifecycle2.components.support.RxAppCompatActivity;
 
+import butterknife.ButterKnife;
+
 /**
  * @author ddc
  * 邮箱: 931952032@qq.com
@@ -21,6 +23,7 @@ public abstract class BaseActivity extends RxAppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(getLayoutId());
+        ButterKnife.bind(this);
         initViews(savedInstanceState);
     }
 

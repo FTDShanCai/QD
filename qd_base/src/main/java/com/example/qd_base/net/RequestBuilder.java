@@ -1,6 +1,8 @@
 package com.example.qd_base.net;
 
 
+import java.util.concurrent.TimeUnit;
+
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
@@ -38,6 +40,7 @@ public class RequestBuilder {
         }
         return this;
     }
+
 
     public <T> T getApi(final Class<T> service) {
         Retrofit.Builder builder = new Retrofit.Builder()

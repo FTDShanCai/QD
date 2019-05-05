@@ -16,6 +16,23 @@ import okhttp3.Response;
  * <p>description:
  */
 public class CacheInterceptor implements Interceptor {
+
+    private int maxAge_online = 60;
+    private TimeUnit maxAge_timeUnit = TimeUnit.MINUTES;
+
+    private int maxStale_offline = 30;
+    private TimeUnit maxStale_timeUnit = TimeUnit.DAYS;
+
+    public void setMaxAge(int maxAge_online,TimeUnit maxAge_timeUnit) {
+        this.maxAge_online = maxAge_online;
+        this.maxAge_timeUnit = maxAge_timeUnit;
+    }
+
+    public void setMaxStale(int maxStale_offline,TimeUnit maxStale_timeUnit) {
+        this.maxStale_offline = maxStale_offline;
+        this.maxStale_timeUnit = maxStale_timeUnit;
+    }
+
     public Response intercept(Interceptor.Chain chain) throws IOException {
         Response resp;
         Request req;
@@ -25,7 +42,7 @@ public class CacheInterceptor implements Interceptor {
                     .newBuilder()
                     .cacheControl(new CacheControl
                             .Builder()
-                            .maxAge(60, TimeUnit.MINUTES)
+                            .maxAge(maxAge_online, maxAge_timeUnit)
                             .build())
                     .build();
         } else {
@@ -33,7 +50,7 @@ public class CacheInterceptor implements Interceptor {
             req = chain.request().newBuilder()
                     .cacheControl(new CacheControl.Builder()
                             .onlyIfCached()
-                            .maxStale(30, TimeUnit.DAYS)
+                            .maxStale(maxStale_offline,maxStale_timeUnit)
                             .build())
                     .build();
         }
