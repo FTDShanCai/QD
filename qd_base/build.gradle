@@ -54,4 +54,7 @@ dependencies {
     api 'com.jakewharton:butterknife:8.8.1'
     api 'de.hdodenhof:circleimageview:2.2.0'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+    api 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.34'
+    api 'com.android.support:recyclerview-v7:28.0.0'
+
 }

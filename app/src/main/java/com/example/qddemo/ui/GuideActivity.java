@@ -24,7 +24,7 @@ public class GuideActivity extends RxAppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_guide);
-        Observable.timer(2500, TimeUnit.MILLISECONDS)
+        Observable.timer(500, TimeUnit.MILLISECONDS)
                 .compose(RxSchedulers.compose())
                 .compose(bindUntilEvent(ActivityEvent.DESTROY))
                 .subscribe(new Consumer<Long>() {

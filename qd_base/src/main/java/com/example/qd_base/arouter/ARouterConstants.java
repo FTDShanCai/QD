@@ -7,4 +7,5 @@ package com.example.qd_base.arouter;
  */
 public class ARouterConstants {
 
+    public static final String WEATHER_MAIN = "/Weather/Main";
 }

@@ -7,17 +7,16 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
 
-import com.alibaba.android.arouter.facade.Postcard;
-import com.alibaba.android.arouter.facade.callback.NavigationCallback;
-import com.alibaba.android.arouter.launcher.ARouter;
 import com.example.qd_base.BaseActivity;
 import com.example.qddemo.R;
+import com.example.qddemo.ui.main.home.HomeFragment;
 
 import butterknife.BindView;
 
@@ -31,6 +30,8 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
     NavigationView navigation;
 
     private Fragment currentFragment;
+
+    private HomeFragment homeFragment;
 
     @Override
     protected int getLayoutId() {
@@ -48,46 +49,27 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
 
         navigation.setNavigationItemSelectedListener(this);
         navigation.setCheckedItem(R.id.menu_home);
-    }
-
-    private void goLogin() {
-        ARouter.getInstance().build("/login/login").navigation(this, new NavigationCallback() {
-            @Override
-            public void onFound(Postcard postcard) {
-                Log.d("ftd", "onFound");
-            }
-
-            @Override
-            public void onLost(Postcard postcard) {
-                Log.d("ftd", "onLost");
-            }
-
-            @Override
-            public void onArrival(Postcard postcard) {
-                Log.d("ftd", "onArrival");
-            }
-
-            @Override
-            public void onInterrupt(Postcard postcard) {
-                Log.d("ftd", "onInterrupt");
-            }
-        });
+        if (homeFragment == null)
+            homeFragment = HomeFragment.newInstance();
+        changeFm(homeFragment);
     }
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-
         switch (menuItem.getItemId()) {
             case R.id.menu_home:
-
+                if (homeFragment == null)
+                    homeFragment = HomeFragment.newInstance();
+                changeFm(homeFragment);
                 break;
         }
-
+        drawer_layout.closeDrawer(GravityCompat.START);
         return true;
     }
 
     /**
      * 切换fragment
+     *
      * @param fragment
      */
     private void changeFm(Fragment fragment) {
@@ -98,12 +80,12 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
         if (currentFragment != null) {
             transaction.hide(currentFragment);
         }
-        if (fragment.isAdded()) {
+        if (!fragment.isAdded()) {
             transaction.add(R.id.frame_layout, fragment);
         } else {
             transaction.show(fragment);
         }
-        transaction.commitAllowingStateLoss();
+        transaction.commit();
         currentFragment = fragment;
     }
 }
