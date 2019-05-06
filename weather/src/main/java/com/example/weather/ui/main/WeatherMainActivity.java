@@ -13,6 +13,7 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 import com.example.qd_base.arouter.ARouterConstants;
 import com.example.qd_base.mvp.BaseMvpActivity;
 import com.example.weather.R;
+import com.example.weather.adapter.WeatherFutureAdatper;
 import com.example.weather.adapter.WeatherHoursAdapter;
 import com.example.weather.entity.WeatherResult;
 import com.example.weather.util.WeatherUtil;
@@ -105,6 +106,20 @@ public class WeatherMainActivity extends BaseMvpActivity<WeatherMainPresenter> i
 
     @Override
     public void setFutureDays(ArrayList<WeatherResult.Data> futureDays) {
+
+        if (futureDays != null && futureDays.size() != 0) {
+            recyclerDays.setVisibility(View.VISIBLE);
+            recyclerDays.setFocusableInTouchMode(false);
+            recyclerDays.requestFocus();
+            WeatherFutureAdatper futureAdapter = new WeatherFutureAdatper(futureDays);
+            recyclerDays.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+            recyclerDays.setAdapter(futureAdapter);
+            recyclerDays.setNestedScrollingEnabled(false);
+
+        } else {
+            recyclerDays.setVisibility(View.GONE);
+        }
+
 
     }
 }

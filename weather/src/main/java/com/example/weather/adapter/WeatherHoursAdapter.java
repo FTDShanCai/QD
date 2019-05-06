@@ -1,7 +1,6 @@
 package com.example.weather.adapter;
 
 import android.support.annotation.Nullable;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
@@ -10,6 +9,8 @@ import com.example.weather.R;
 import com.example.weather.entity.WeatherResult;
 
 import java.util.List;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 /**
  * @author ddc
@@ -25,7 +26,7 @@ public class WeatherHoursAdapter extends BaseQuickAdapter<WeatherResult.Data.Hou
     protected void convert(BaseViewHolder helper, WeatherResult.Data.Hours item) {
         TextView tv_time = helper.getView(R.id.tv_time);
         TextView tv_temp = helper.getView(R.id.tv_temp);
-        ImageView iv_icon = helper.getView(R.id.iv_icon);
+        CircleImageView iv_icon = helper.getView(R.id.iv_icon);
 
         tv_time.setText(item.getDay());
         iv_icon.setImageResource(getIconId(item.getWea()));
