@@ -1,4 +1,5 @@
 <resources>
     <string name="open">打开</string>
     <string name="close">关闭</string>
+    <string name="app_name">奇德</string>
 </resources>

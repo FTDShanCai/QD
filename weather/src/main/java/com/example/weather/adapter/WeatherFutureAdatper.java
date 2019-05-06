@@ -2,7 +2,6 @@ package com.example.weather.adapter;
 
 import android.support.annotation.Nullable;
 import android.text.Html;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
@@ -14,7 +13,6 @@ import com.example.weather.util.WeatherUtil;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -46,7 +44,7 @@ public class WeatherFutureAdatper extends BaseQuickAdapter<WeatherResult.Data, B
             e.printStackTrace();
         }
         iv_icon.setImageResource(WeatherUtil.getWeatherIcon(item.getWea_img()));
-        tv_temps.setText(Html.fromHtml(item.getTem1() + "<font color='#666666'>/" + item.getTem2() + "</font>"));
+        tv_temps.setText(Html.fromHtml(item.getTem1() + "<font color='#999999'>/" + item.getTem2() + "</font>"));
     }
 
 }

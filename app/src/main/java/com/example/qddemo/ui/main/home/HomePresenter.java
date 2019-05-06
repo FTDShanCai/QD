@@ -18,7 +18,7 @@ public class HomePresenter extends BasePresenter<HomeModel, HomeView, FragmentEv
 
     @Override
     protected HomeModel getModel() {
-        return new HomeModel(provider);
+        return new HomeModel();
     }
 
     public void getHomeData() {

@@ -16,10 +16,6 @@ import java.util.ArrayList;
  */
 public class HomeModel extends BaseModel<FragmentEvent> {
 
-    public HomeModel(LifecycleProvider<FragmentEvent> provider) {
-        super(provider);
-    }
-
 
     public ArrayList<HomeBean> getHomeList() {
         ArrayList<HomeBean> list = new ArrayList<>();

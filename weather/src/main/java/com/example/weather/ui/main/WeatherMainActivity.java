@@ -13,6 +13,7 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 import com.example.qd_base.arouter.ARouterConstants;
 import com.example.qd_base.mvp.BaseMvpActivity;
 import com.example.weather.R;
+import com.example.weather.R2;
 import com.example.weather.adapter.WeatherFutureAdatper;
 import com.example.weather.adapter.WeatherHoursAdapter;
 import com.example.weather.entity.WeatherResult;
@@ -24,25 +25,25 @@ import butterknife.BindView;
 
 @Route(path = ARouterConstants.WEATHER_MAIN)
 public class WeatherMainActivity extends BaseMvpActivity<WeatherMainPresenter> implements WeatherMainView {
-    @BindView(R.id.weather_bg)
+    @BindView(R2.id.weather_bg)
     ImageView weatherBg;
-    @BindView(R.id.tv_area)
+    @BindView(R2.id.tv_area)
     TextView tvArea;
-    @BindView(R.id.tv_temp)
+    @BindView(R2.id.tv_temp)
     TextView tvTemp;
-    @BindView(R.id.tv_weather)
+    @BindView(R2.id.tv_weather)
     TextView tvWeather;
-    @BindView(R.id.tv_temps)
+    @BindView(R2.id.tv_temps)
     TextView tvTemps;
-    @BindView(R.id.tv_air)
+    @BindView(R2.id.tv_air)
     TextView tvAir;
-    @BindView(R.id.tv_air_lable)
+    @BindView(R2.id.tv_air_lable)
     TextView tvAirLable;
-    @BindView(R.id.tv_update_time)
+    @BindView(R2.id.tv_update_time)
     TextView tvUpdateTime;
-    @BindView(R.id.recycler_hours)
+    @BindView(R2.id.recycler_hours)
     RecyclerView recyclerHours;
-    @BindView(R.id.recycler_days)
+    @BindView(R2.id.recycler_days)
     RecyclerView recyclerDays;
 
     @Override

@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="Gradle: com.trello.navi2:navi:2.0.1@aar">
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/navi-2.0.1.aar/1ff7c87e079654a5bbd36fbf30ec4d37/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/navi-2.0.1.aar/1ff7c87e079654a5bbd36fbf30ec4d37/jars/classes.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/navi-2.0.1.aar/060df3f513fc0e7e54b9e919fe35ea20/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/navi-2.0.1.aar/060df3f513fc0e7e54b9e919fe35ea20/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
