@@ -1,21 +1,23 @@
-if (rootProject.ext.isWeatherApplication) {
+if (rootProject.ext.isWanAndroidApplication) {
     apply plugin: 'com.android.application'
 } else {
-    apply plugin: 'com.android.library'
+    apply plugin: 'com.android.libray'
 }
 apply plugin: 'com.jakewharton.butterknife'
+
 android {
     compileSdkVersion 28
 
 
     defaultConfig {
+
         minSdkVersion 16
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
 
-        if (rootProject.ext.isWeatherApplication) {
-            applicationId "com.app.weather"
+        if (rootProject.ext.isWanAndroidApplication){
+            applicationId "com.app.wanandroid"
         }
         javaCompileOptions {
             annotationProcessorOptions {
@@ -30,9 +32,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
     sourceSets {
         main {
-            if (rootProject.ext.isWeatherApplication) {
+            if (rootProject.ext.isWanAndroidApplication) {
                 manifest.srcFile 'src/main/module/AndroidManifest.xml'
             } else {
                 manifest.srcFile 'src/main/AndroidManifest.xml'
@@ -44,6 +47,7 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
 }
 
 dependencies {

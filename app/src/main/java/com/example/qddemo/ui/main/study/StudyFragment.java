@@ -13,9 +13,7 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.example.qd_base.arouter.ARouterConstants;
 import com.example.qd_base.mvp.BaseMvpFragment;
 import com.example.qddemo.R;
-import com.example.qddemo.adapter.HomeAdapter;
 import com.example.qddemo.adapter.StudyAdapter;
-import com.example.qddemo.bean.HomeBean;
 import com.example.qddemo.bean.StudyBean;
 import com.example.qddemo.ui.main.home.HomeFragment;
 
@@ -82,7 +80,7 @@ public class StudyFragment extends BaseMvpFragment<StudyPresenter> implements St
 
     @Override
     public void onArrival(Postcard postcard) {
-        
+
     }
 
     @Override
