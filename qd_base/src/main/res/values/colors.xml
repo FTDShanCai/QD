@@ -30,4 +30,5 @@
     <color name="grey_9">#999999</color>
     <color name="grey_eb">#ebebeb</color>
     <color name="grey_f5">#f5f5f5</color>
+    <color name="transparent">#00000000</color>
 </resources>

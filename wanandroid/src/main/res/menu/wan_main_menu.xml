@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/menu_search"
+        android:icon="@drawable/ic_search_white_24dp"
+        android:title="搜索"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/menu_system"
+        android:icon="@drawable/ic_settings_system_daydream_black_24dp"
+        android:title="体系数据"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/menu_net"
+        android:icon="@drawable/ic_open_in_browser_black_24dp"
+        android:title="常用网站"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/menu_peoples"
+        android:icon="@drawable/ic_people_black_24dp"
+        android:title="公众号"
+        app:showAsAction="never" />
+</menu>
