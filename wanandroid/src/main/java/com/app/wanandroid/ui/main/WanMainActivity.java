@@ -1,5 +1,6 @@
 package com.app.wanandroid.ui.main;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.widget.NestedScrollView;
@@ -16,6 +17,7 @@ import com.app.wanandroid.R2;
 import com.app.wanandroid.adapter.WanListAdapter;
 import com.app.wanandroid.bean.ArticleResult;
 import com.app.wanandroid.bean.BannerData;
+import com.app.wanandroid.ui.systemData.WanSystemDataActivity;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.example.qd_base.mvp.BaseMvpActivity;
 import com.example.qd_base.util.GlideUtil;
@@ -75,6 +77,13 @@ public class WanMainActivity extends BaseMvpActivity<WanMainPresenter> implement
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        Intent intent = new Intent();
+        switch (item.getItemId()) {
+            case R.id.menu_system:
+                intent.setClass(this, WanSystemDataActivity.class);
+                startActivity(intent);
+                break;
+        }
         return super.onOptionsItemSelected(item);
     }
 

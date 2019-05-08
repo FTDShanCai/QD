@@ -26,5 +26,10 @@ class RandomUtil {
             val random = Random()
             return Material_design_colors[random.nextInt(size)]
         }
+
+        fun getColor(index: Int): Int {
+            val size = Material_design_colors.size
+            return Material_design_colors[index % size]
+        }
     }
 }

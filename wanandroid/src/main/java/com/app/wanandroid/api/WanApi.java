@@ -2,6 +2,7 @@ package com.app.wanandroid.api;
 
 import com.app.wanandroid.bean.ArticleResult;
 import com.app.wanandroid.bean.BannerData;
+import com.app.wanandroid.bean.SystemData;
 import com.app.wanandroid.net.WanBaseResult;
 
 import java.util.ArrayList;
@@ -27,5 +28,9 @@ public interface WanApi {
     @GET("article/listproject/{page}/json")
     Observable<WanBaseResult<ArticleResult>> getArticleProjectList(@Path("page") int page);
 
+
+    //体系结构
+    @GET("tree/json")
+    Observable<WanBaseResult<ArrayList<SystemData>>> getSystemDatas();
 
 }

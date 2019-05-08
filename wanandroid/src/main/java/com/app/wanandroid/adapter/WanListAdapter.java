@@ -47,7 +47,7 @@ public class WanListAdapter extends BaseQuickAdapter<ArticleResult.Data, BaseVie
 
         tvTitle.setText(item.getTitle());
         tvLable.setText(item.getAuthor());
-        cardLable.setCardBackgroundColor(color);
+        cardLable.setBackgroundResource(color);
         tvDate.setText(item.getNiceDate());
     }
 }

@@ -27,11 +27,11 @@ import butterknife.ButterKnife;
 public abstract class BaseMvpActivity<P extends BasePresenter> extends RxAppCompatActivity {
     protected abstract int getLayoutId();
 
-    protected abstract void init();
-
     protected abstract P getPresenter();
 
     protected P presenter;
+
+    protected abstract void init();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
