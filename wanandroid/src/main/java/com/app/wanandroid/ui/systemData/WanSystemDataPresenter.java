@@ -1,9 +1,12 @@
 package com.app.wanandroid.ui.systemData;
 
 import android.content.Context;
+import android.content.Intent;
 
 import com.app.wanandroid.bean.SystemData;
 import com.app.wanandroid.net.WanBaseResult;
+import com.app.wanandroid.ui.articleList.WanArticleListActivity;
+import com.app.wanandroid.util.Contacts;
 import com.example.qd_base.BaseResponse;
 import com.example.qd_base.mvp.BasePresenter;
 import com.trello.rxlifecycle2.android.ActivityEvent;
@@ -51,7 +54,10 @@ public class WanSystemDataPresenter extends BasePresenter<WanSystemDataModel, Wa
             view.setSystemData(data.getChildren());
             integers.add(nowPosition);
         } else {
-            view.toast("最底层了");
+            Intent intent = new Intent(context.get(), WanArticleListActivity.class);
+            intent.putExtra(Contacts.CID, data.getId());
+            intent.putExtra(Contacts.TITLE, data.getName());
+            context.get().startActivity(intent);
         }
     }
 
@@ -59,7 +65,7 @@ public class WanSystemDataPresenter extends BasePresenter<WanSystemDataModel, Wa
         if (integers.size() == 0) {
             view.finishView();
         } else {
-            integers.remove(integers.size()-1);
+            integers.remove(integers.size() - 1);
             if (integers.size() == 0) {
                 view.setSystemData(systemData);
             } else {

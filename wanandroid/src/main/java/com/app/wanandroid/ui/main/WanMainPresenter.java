@@ -19,7 +19,7 @@ import java.util.ArrayList;
 public class WanMainPresenter extends BasePresenter<WanMainModel, WanMainView, ActivityEvent> {
 
     private ArrayList<ArticleResult.Data> list = new ArrayList<>();
-    private int page = 1;
+    private int page = 0;
 
 
     public WanMainPresenter(Context context, WanMainView view) {
@@ -57,7 +57,7 @@ public class WanMainPresenter extends BasePresenter<WanMainModel, WanMainView, A
 
     public void getList(boolean isRefresh) {
         if (isRefresh) {
-            page = 1;
+            page = 0;
         }
 
         model.getArticleList(page, new BaseResponse<WanBaseResult<ArticleResult>>() {

@@ -8,4 +8,11 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="MyToolBarTheme">
+        <item name="android:singleLine">true</item>
+        <item name="android:ellipsize">marquee</item>
+        <item name="android:state_selected">true</item>
+        <item name="android:marqueeRepeatLimit">marquee_forever</item>
+    </style>
+
 </resources>

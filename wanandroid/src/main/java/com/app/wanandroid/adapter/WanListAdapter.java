@@ -39,10 +39,10 @@ public class WanListAdapter extends BaseQuickAdapter<ArticleResult.Data, BaseVie
         cardImg.setCardBackgroundColor(color);
 
         if (!TextUtils.isEmpty(item.getEnvelopePic())) {
-            img.setVisibility(View.VISIBLE);
+            cardImg.setVisibility(View.VISIBLE);
             GlideUtil.load(mContext, item.getEnvelopePic(), img);
         } else {
-            img.setVisibility(View.GONE);
+            cardImg.setVisibility(View.GONE);
         }
 
         tvTitle.setText(item.getTitle());

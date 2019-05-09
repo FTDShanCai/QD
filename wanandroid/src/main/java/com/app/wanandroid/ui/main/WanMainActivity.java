@@ -7,18 +7,22 @@ import android.support.v4.widget.NestedScrollView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.app.wanandroid.R;
 import com.app.wanandroid.R2;
 import com.app.wanandroid.adapter.WanListAdapter;
 import com.app.wanandroid.bean.ArticleResult;
 import com.app.wanandroid.bean.BannerData;
 import com.app.wanandroid.ui.systemData.WanSystemDataActivity;
+import com.app.wanandroid.ui.usuallyNet.WanUsuallyNetActivity;
 import com.chad.library.adapter.base.BaseQuickAdapter;
+import com.example.qd_base.arouter.ARouterConstants;
 import com.example.qd_base.mvp.BaseMvpActivity;
 import com.example.qd_base.util.GlideUtil;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
@@ -83,6 +87,10 @@ public class WanMainActivity extends BaseMvpActivity<WanMainPresenter> implement
                 intent.setClass(this, WanSystemDataActivity.class);
                 startActivity(intent);
                 break;
+            case R.id.menu_net:
+                intent.setClass(this, WanUsuallyNetActivity.class);
+                startActivity(intent);
+                break;
         }
         return super.onOptionsItemSelected(item);
     }
@@ -140,7 +148,18 @@ public class WanMainActivity extends BaseMvpActivity<WanMainPresenter> implement
         adapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+                if (adapter.getData().get(position) instanceof ArticleResult.Data) {
+                    ArticleResult.Data data = (ArticleResult.Data) adapter.getData().get(position);
 
+                    if (TextUtils.isEmpty(data.getLink())) {
+                        return;
+                    }
+
+                    ARouter.getInstance().build(ARouterConstants.BASE_WEB)
+                            .withString(ARouterConstants.Bundle.TITLE, data.getTitle())
+                            .withString(ARouterConstants.Bundle.URL, data.getLink())
+                            .navigation();
+                }
             }
         });
     }
@@ -148,7 +167,7 @@ public class WanMainActivity extends BaseMvpActivity<WanMainPresenter> implement
     @Override
     public void setRefreshLayoutEnable(boolean isLoadMore, boolean enable) {
         if (isLoadMore) {
-            refresh_layout.setEnableAutoLoadMore(enable);
+            refresh_layout.setEnableLoadMore(enable);
         } else {
             refresh_layout.setEnableRefresh(enable);
         }
