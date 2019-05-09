@@ -8,6 +8,8 @@ import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.View;
 
+import com.alibaba.android.arouter.facade.annotation.Autowired;
+import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.app.wanandroid.R;
 import com.app.wanandroid.R2;
@@ -24,6 +26,7 @@ import java.util.ArrayList;
 
 import butterknife.BindView;
 
+@Route(path = ARouterConstants.Module.WanAndroid.WAN_ANDROID_ARTICLELIST)
 public class WanArticleListActivity extends BaseMvpActivity<WanArticleListPresenter> implements WanArticleListView {
 
     @BindView(R2.id.tool_bar)
@@ -33,6 +36,12 @@ public class WanArticleListActivity extends BaseMvpActivity<WanArticleListPresen
     @BindView(R2.id.refresh_layout)
     SmartRefreshLayout refresh_layout;
     private WanListAdapter adapter;
+
+    @Autowired
+    String cid;
+
+    @Autowired
+    String title;
 
     @Override
     protected int getLayoutId() {
@@ -46,7 +55,7 @@ public class WanArticleListActivity extends BaseMvpActivity<WanArticleListPresen
 
     @Override
     protected void init() {
-        presenter.getIntentData(getIntent());
+        presenter.getIntentData(cid,title);
     }
 
 
@@ -99,7 +108,7 @@ public class WanArticleListActivity extends BaseMvpActivity<WanArticleListPresen
                         return;
                     }
 
-                    ARouter.getInstance().build(ARouterConstants.BASE_WEB)
+                    ARouter.getInstance().build(ARouterConstants.Module.BASE_WEB)
                             .withString(ARouterConstants.Bundle.TITLE, data.getTitle())
                             .withString(ARouterConstants.Bundle.URL, data.getLink())
                             .navigation();

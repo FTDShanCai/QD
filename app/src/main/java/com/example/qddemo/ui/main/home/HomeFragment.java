@@ -93,7 +93,7 @@ public class HomeFragment extends BaseMvpFragment<HomePresenter> implements Home
             HomeBean bean = (HomeBean) adapter.getData().get(position);
             switch (bean.getHomeEnum()) {
                 case 天气:
-                    ARouter.getInstance().build(ARouterConstants.WEATHER_MAIN)
+                    ARouter.getInstance().build(ARouterConstants.Module.Weahter.WEATHER_MAIN)
                             .navigation(getActivity(), this);
                     break;
             }

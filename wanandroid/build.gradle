@@ -1,7 +1,7 @@
 if (rootProject.ext.isWanAndroidApplication) {
     apply plugin: 'com.android.application'
 } else {
-    apply plugin: 'com.android.libray'
+    apply plugin: 'com.android.library'
 }
 apply plugin: 'com.jakewharton.butterknife'
 

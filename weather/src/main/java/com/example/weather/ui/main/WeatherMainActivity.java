@@ -23,7 +23,7 @@ import java.util.ArrayList;
 
 import butterknife.BindView;
 
-@Route(path = ARouterConstants.WEATHER_MAIN)
+@Route(path = ARouterConstants.Module.Weahter.WEATHER_MAIN)
 public class WeatherMainActivity extends BaseMvpActivity<WeatherMainPresenter> implements WeatherMainView {
     @BindView(R2.id.weather_bg)
     ImageView weatherBg;

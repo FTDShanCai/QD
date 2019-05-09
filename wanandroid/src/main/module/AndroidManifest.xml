@@ -12,7 +12,7 @@
         android:roundIcon="@mipmap/wan_logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.usuallyNet.WanUsuallyNetActivity"></activity>
+        <activity android:name=".ui.usuallyNet.WanUsuallyNetActivity"/>
         <activity android:name=".ui.articleList.WanArticleListActivity" />
         <activity android:name=".ui.systemData.WanSystemDataActivity" />
         <activity android:name=".ui.main.WanMainActivity">

@@ -3,11 +3,13 @@ package com.app.wanandroid.ui.systemData;
 import android.content.Context;
 import android.content.Intent;
 
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.app.wanandroid.bean.SystemData;
 import com.app.wanandroid.net.WanBaseResult;
 import com.app.wanandroid.ui.articleList.WanArticleListActivity;
 import com.app.wanandroid.util.Contacts;
 import com.example.qd_base.BaseResponse;
+import com.example.qd_base.arouter.ARouterConstants;
 import com.example.qd_base.mvp.BasePresenter;
 import com.trello.rxlifecycle2.android.ActivityEvent;
 
@@ -54,10 +56,10 @@ public class WanSystemDataPresenter extends BasePresenter<WanSystemDataModel, Wa
             view.setSystemData(data.getChildren());
             integers.add(nowPosition);
         } else {
-            Intent intent = new Intent(context.get(), WanArticleListActivity.class);
-            intent.putExtra(Contacts.CID, data.getId());
-            intent.putExtra(Contacts.TITLE, data.getName());
-            context.get().startActivity(intent);
+            ARouter.getInstance().build(ARouterConstants.Module.WanAndroid.WAN_ANDROID_ARTICLELIST)
+                    .withString(Contacts.CID, data.getId())
+                    .withString(Contacts.TITLE, data.getName())
+                    .navigation();
         }
     }
 

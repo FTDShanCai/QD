@@ -6,10 +6,11 @@ import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.View;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.app.wanandroid.R;
+import com.app.wanandroid.R2;
 import com.app.wanandroid.adapter.WanUsuallyNetAdapter;
-import com.app.wanandroid.bean.ArticleResult;
 import com.app.wanandroid.bean.UsuallyNetData;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.example.qd_base.arouter.ARouterConstants;
@@ -19,11 +20,12 @@ import java.util.ArrayList;
 
 import butterknife.BindView;
 
+@Route(path = ARouterConstants.Module.WanAndroid.WAN_ANDROID_USUALLYNET)
 public class WanUsuallyNetActivity extends BaseMvpActivity<WanUsuallyNetPresenter> implements WanUsuallyNetView {
 
-    @BindView(R.id.tool_bar)
+    @BindView(R2.id.tool_bar)
     Toolbar toolBar;
-    @BindView(R.id.recycler_view)
+    @BindView(R2.id.recycler_view)
     RecyclerView recyclerView;
 
 
@@ -71,7 +73,7 @@ public class WanUsuallyNetActivity extends BaseMvpActivity<WanUsuallyNetPresente
                         return;
                     }
 
-                    ARouter.getInstance().build(ARouterConstants.BASE_WEB)
+                    ARouter.getInstance().build(ARouterConstants.Module.BASE_WEB)
                             .withString(ARouterConstants.Bundle.TITLE, data.getName())
                             .withString(ARouterConstants.Bundle.URL, data.getLink())
                             .navigation();

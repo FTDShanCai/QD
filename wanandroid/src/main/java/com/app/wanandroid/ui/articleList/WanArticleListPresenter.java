@@ -2,6 +2,7 @@ package com.app.wanandroid.ui.articleList;
 
 import android.content.Context;
 import android.content.Intent;
+import android.text.TextUtils;
 
 import com.app.wanandroid.bean.ArticleResult;
 import com.app.wanandroid.net.WanBaseResult;
@@ -32,11 +33,11 @@ public class WanArticleListPresenter extends BasePresenter<WanArticleListModel, 
         return new WanArticleListModel();
     }
 
-    public void getIntentData(Intent intent) {
+    public void getIntentData(String cid, String title) {
         view.initListData(list);
-        if (intent != null) {
-            cid = intent.getStringExtra(Contacts.CID);
-            view.setTitleBarInfo(intent.getStringExtra(Contacts.TITLE));
+        this.cid = cid;
+        if (!TextUtils.isEmpty(title)) {
+            view.setTitleBarInfo(title);
         } else {
             view.setTitleBarInfo("列表");
         }

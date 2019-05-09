@@ -30,7 +30,7 @@ import butterknife.ButterKnife;
 import io.reactivex.Observable;
 import io.reactivex.functions.Consumer;
 
-@Route(path = ARouterConstants.BASE_WEB)
+@Route(path = ARouterConstants.Module.BASE_WEB)
 public class WebCommonActivity extends RxAppCompatActivity implements View.OnClickListener {
 
     @BindView(R2.id.web_view)

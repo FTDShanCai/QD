@@ -48,9 +48,9 @@ public class StudyFragment extends BaseMvpFragment<StudyPresenter> implements St
         return new StudyPresenter(getActivity(), this);
     }
 
-    public static HomeFragment newInstance() {
+    public static StudyFragment newInstance() {
         Bundle args = new Bundle();
-        HomeFragment fragment = new HomeFragment();
+        StudyFragment fragment = new StudyFragment();
         fragment.setArguments(args);
         return fragment;
     }
@@ -94,7 +94,7 @@ public class StudyFragment extends BaseMvpFragment<StudyPresenter> implements St
             StudyBean bean = (StudyBean) adapter.getData().get(position);
             switch (bean.getStudyEnum()) {
                 case 玩Android:
-                    ARouter.getInstance().build(ARouterConstants.WEATHER_MAIN)
+                    ARouter.getInstance().build(ARouterConstants.Module.WanAndroid.WAN_ANDROID_MAIN)
                             .navigation(getActivity(), this);
                     break;
             }

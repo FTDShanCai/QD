@@ -7,17 +7,20 @@ import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
 import com.app.wanandroid.R;
 import com.app.wanandroid.R2;
 import com.app.wanandroid.adapter.WanSystemDataAdapter;
 import com.app.wanandroid.bean.SystemData;
 import com.chad.library.adapter.base.BaseQuickAdapter;
+import com.example.qd_base.arouter.ARouterConstants;
 import com.example.qd_base.mvp.BaseMvpActivity;
 
 import java.util.ArrayList;
 
 import butterknife.BindView;
 
+@Route(path = ARouterConstants.Module.WanAndroid.WAN_ANDROID_SYSTEMDATA)
 public class WanSystemDataActivity extends BaseMvpActivity<WanSystemDataPresenter> implements WanSystemDataView {
     @BindView(R2.id.recycler_view)
     RecyclerView recyclerView;

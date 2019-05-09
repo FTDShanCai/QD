@@ -45,6 +45,10 @@ dependencies {
     if (!rootProject.ext.isWeatherApplication) {
         runtimeOnly project(path: ':weather')
     }
+    //玩android组件
+    if (!rootProject.ext.isWanAndroidApplication) {
+        runtimeOnly project(path: ':wanandroid')
+    }
 
     annotationProcessor 'com.alibaba:arouter-compiler:1.2.2'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'

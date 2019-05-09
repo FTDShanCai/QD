@@ -17,6 +17,7 @@ import android.view.MenuItem;
 import com.example.qd_base.BaseActivity;
 import com.example.qddemo.R;
 import com.example.qddemo.ui.main.home.HomeFragment;
+import com.example.qddemo.ui.main.study.StudyFragment;
 
 import butterknife.BindView;
 
@@ -32,6 +33,8 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
     private Fragment currentFragment;
 
     private HomeFragment homeFragment;
+    private StudyFragment studyFragment;
+
 
     @Override
     protected int getLayoutId() {
@@ -61,6 +64,11 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
                 if (homeFragment == null)
                     homeFragment = HomeFragment.newInstance();
                 changeFm(homeFragment);
+                break;
+            case R.id.menu_study:
+                if (studyFragment == null)
+                    studyFragment = StudyFragment.newInstance();
+                changeFm(studyFragment);
                 break;
         }
         drawer_layout.closeDrawer(GravityCompat.START);

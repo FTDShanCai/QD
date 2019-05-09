@@ -13,6 +13,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.alibaba.android.arouter.facade.Postcard;
+import com.alibaba.android.arouter.facade.annotation.Route;
+import com.alibaba.android.arouter.facade.callback.NavigationCallback;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.app.wanandroid.R;
 import com.app.wanandroid.R2;
@@ -35,7 +38,9 @@ import java.util.ArrayList;
 import butterknife.BindView;
 import cn.bingoogolapple.bgabanner.BGABanner;
 
-public class WanMainActivity extends BaseMvpActivity<WanMainPresenter> implements WanMainView {
+
+@Route(path = ARouterConstants.Module.WanAndroid.WAN_ANDROID_MAIN)
+public class WanMainActivity extends BaseMvpActivity<WanMainPresenter> implements WanMainView ,NavigationCallback{
 
     @BindView(R2.id.tool_bar)
     Toolbar tool_bar;
@@ -81,16 +86,13 @@ public class WanMainActivity extends BaseMvpActivity<WanMainPresenter> implement
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        Intent intent = new Intent();
-        switch (item.getItemId()) {
-            case R.id.menu_system:
-                intent.setClass(this, WanSystemDataActivity.class);
-                startActivity(intent);
-                break;
-            case R.id.menu_net:
-                intent.setClass(this, WanUsuallyNetActivity.class);
-                startActivity(intent);
-                break;
+        int i = item.getItemId();
+        if (i == R.id.menu_system) {
+            ARouter.getInstance().build(ARouterConstants.Module.WanAndroid.WAN_ANDROID_SYSTEMDATA)
+                    .navigation(this, this);
+        } else if (i == R.id.menu_net) {
+            ARouter.getInstance().build(ARouterConstants.Module.WanAndroid.WAN_ANDROID_USUALLYNET)
+                    .navigation(this, this);
         }
         return super.onOptionsItemSelected(item);
     }
@@ -155,7 +157,7 @@ public class WanMainActivity extends BaseMvpActivity<WanMainPresenter> implement
                         return;
                     }
 
-                    ARouter.getInstance().build(ARouterConstants.BASE_WEB)
+                    ARouter.getInstance().build(ARouterConstants.Module.BASE_WEB)
                             .withString(ARouterConstants.Bundle.TITLE, data.getTitle())
                             .withString(ARouterConstants.Bundle.URL, data.getLink())
                             .navigation();
@@ -187,4 +189,25 @@ public class WanMainActivity extends BaseMvpActivity<WanMainPresenter> implement
         if (adapter != null)
             adapter.notifyDataSetChanged();
     }
+
+    @Override
+    public void onFound(Postcard postcard) {
+
+    }
+
+    @Override
+    public void onLost(Postcard postcard) {
+        toastMsg(postcard.getPath() + " | onLost");
+    }
+
+    @Override
+    public void onArrival(Postcard postcard) {
+
+    }
+
+    @Override
+    public void onInterrupt(Postcard postcard) {
+        toastMsg(postcard.getPath() + " | onInterrupt");
+    }
+
 }

@@ -14,6 +14,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Toast;
 
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.trello.rxlifecycle2.components.support.RxAppCompatActivity;
 import com.trello.rxlifecycle2.components.support.RxFragment;
 
@@ -39,6 +40,7 @@ public abstract class BaseMvpActivity<P extends BasePresenter> extends RxAppComp
         beforeSetContentView();
         setContentView(getLayoutId());
         ButterKnife.bind(this);
+        ARouter.getInstance().inject(this);
         if (presenter == null) {
             presenter = getPresenter();
         }
